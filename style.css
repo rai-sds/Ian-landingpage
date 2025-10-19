@@ -303,3 +303,7 @@ footer {
     gap: 1rem;
   }
 }
+.logo-img {
+  height: 60px;
+  object-fit: contain;
+}
