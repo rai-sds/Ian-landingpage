@@ -13,19 +13,18 @@
 <body>
 
   <!-- Navbar -->
- <!-- Navbar -->
-<header class="navbar">
-  <div class="logo">
-    <img src="Logo.png" alt="Logo César BPO Financeiro" class="logo-img">
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="navbar">
+    <div class="logo">
+      <img src="Logo.png" alt="Logo César BPO Financeiro" class="logo-img">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Hero -->
   <section class="hero" data-aos="fade-up">
@@ -33,7 +32,7 @@
       <div class="hero-content">
         <h2>Olá, eu sou <span>Ian Cesar</span></h2>
         <p>Analista financeiro especializado em BPO FINANCEIRO e estratégia financeira para MEI e consultoria financeira</p>
-        <a href="#contato" class="btn">Entre em contato</a>
+        <a href="https://wa.me/556196899907" class="btn">Entre em contato</a>
       </div>
 
       <div class="hero-photo">
@@ -60,6 +59,9 @@
       <a href="https://wa.me/556196899907" target="_blank" aria-label="WhatsApp de Ian Cesar">
         <i class="fab fa-whatsapp"></i>
       </a>
+      <a href="mailto:Iancesar411@gmail.com" target="_blank" aria-label="Email para Ian Cesar">
+        <i class="fas fa-envelope"></i>
+      </a>
     </div>
   </section>
 
@@ -82,15 +84,33 @@
     </div>
   </section>
 
-  <!-- Contato -->
-  <section id="contato" class="contato" data-aos="fade-up">
-    <h2>Entre em Contato</h2>
-    <form action="https://formsubmit.co/seu-email@email.com" method="POST">
-      <input type="text" name="name" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <textarea name="message" placeholder="Sua mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
+  <!-- Depoimentos -->
+  <section id="depoimentos" class="depoimentos" data-aos="fade-up">
+    <h2>Depoimentos dos Clientes</h2>
+    <div class="depoimentos-container">
+      <div class="depoimento-card" data-aos="zoom-in">
+        <div class="depoimento-header">
+          <div class="estrelas">★★★★★</div>
+          <p class="intro">A satisfação dos nossos clientes está no centro de tudo o que fazemos. Temos orgulho de ter tido a oportunidade de representar e auxiliar inúmeras pessoas.</p>
+        </div>
+
+        <div class="depoimento-body">
+          <p class="texto">"Quero deixar registrado o grande estudo realizado com o trabalho do Dr. Renato. Inicialmente, fizemos uma análise inicial e após alguns meses, sempre trazendo soluções jurídicas rápidas, claras e que realmente funcionam. Além de ser super profissional, ..."</p>
+          <div class="autor">
+            <img src="profile-placeholder.jpg" alt="Foto do cliente" class="autor-foto">
+            <div class="autor-info">
+              <strong>Vinícius Velim</strong>
+              <span class="tempo">6 meses atrás</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="depoimento-nav">
+          <button class="nav-btn" aria-label="Anterior">&larr;</button>
+          <button class="nav-btn" aria-label="Próximo">&rarr;</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Rodapé -->
