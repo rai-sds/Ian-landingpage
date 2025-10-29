@@ -14,32 +14,66 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">
+  <div class="logo">
+    <img src="Logo.png" alt="Logo César BPO Financeiro" class="logo-img">
+  </div>
+
+  <!-- Botão hamburger (aparece apenas em mobile) -->
+  <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+    <span class="hamburger-bar"></span>
+    <span class="hamburger-bar"></span>
+    <span class="hamburger-bar"></span>
+  </button>
+
+  <!-- Nav original fica para desktop (permanece para larguras maiores) -->
+  <nav class="nav-desktop">
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Sidebar mobile (inserir logo opcionalmente no topo) -->
+<aside class="sidebar" aria-hidden="true">
+  <div class="sidebar-inner">
+    <button class="sidebar-close" aria-label="Fechar menu">&times;</button>
+    <div class="sidebar-logo">
       <img src="Logo.png" alt="Logo César BPO Financeiro" class="logo-img">
     </div>
-    <nav>
+    <nav class="nav-mobile">
       <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#sobre" class="sidebar-link">Sobre</a></li>
+        <li><a href="#servicos" class="sidebar-link">Serviços</a></li>
+        <li><a href="#depoimentos" class="sidebar-link">Depoimentos</a></li>
       </ul>
     </nav>
-  </header>
+    <div class="sidebar-socials">
+      <a href="https://www.instagram.com/cesarr_ian_?igsh=MW56eGhpeW1zNjI3aA==" aria-label="Instagram de César"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/556196899907" aria-label="WhatsApp de César"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:Iancesar411@gmail.com" aria-label="Email para César"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- Overlay, aparece quando a sidebar estiver aberta -->
+<div class="overlay" aria-hidden="true"></div>
 
   <!-- Hero -->
   <section class="hero" data-aos="fade-up">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h2>Olá, eu sou <span>Ian Cesar</span></h2>
-        <p>Analista financeiro especializado em BPO FINANCEIRO e estratégia financeira para MEI e consultoria financeira</p>
-        <a href="https://wa.me/556196899907" class="btn">Entre em contato</a>
-      </div>
-
-      <div class="hero-photo">
-        <img src="Ian.jpg" alt="Foto de Ian Cesar" loading="lazy">
-      </div>
+  <div class="hero-container">
+    <div class="hero-photo">
+      <img src="Ian.jpg" alt="Foto de Ian Cesar" loading="lazy">
     </div>
-  </section>
+
+    <div class="hero-content">
+      <h2>Olá, eu sou <span>Ian Cesar</span></h2>
+      <p>Analista financeiro especializado em BPO FINANCEIRO e estratégia financeira para MEI e consultoria financeira</p>
+      <a href="https://wa.me/556196899907" class="btn">Entre em contato</a>
+    </div>
+  </div>
+</section>
 
   <!-- Sobre Mim -->
   <section id="sobre" class="sobre" data-aos="fade-up">
@@ -91,7 +125,6 @@
       <div class="depoimento-card" data-aos="zoom-in">
         <div class="depoimento-header">
           <div class="estrelas">★★★★★</div>
-          <p class="intro">A satisfação dos nossos clientes está no centro de tudo o que fazemos. Temos orgulho de ter tido a oportunidade de representar e auxiliar inúmeras pessoas.</p>
         </div>
 
         <div class="depoimento-body">
@@ -122,5 +155,50 @@
   <script>
     AOS.init();
   </script>
+  <script>
+  (function() {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.overlay');
+    const closeBtn = document.querySelector('.sidebar-close');
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('open');
+      sidebar.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+      sidebar.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeSidebar(); else openSidebar();
+    });
+
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+
+    // Fecha sidebar ao clicar em qualquer link de navegação
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeSidebar();
+      });
+    });
+
+    // Fecha com Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSidebar();
+    });
+  })();
+</script>
 </body>
 </html>
